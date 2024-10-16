@@ -4,8 +4,8 @@
  */
 
 /* Global Variables */
-var trainer = false
-var count = 0
+var trainer = false;
+var count = 0;
 
 /** 
  * main  
@@ -15,11 +15,12 @@ var count = 0
  */
 /* Main */
 function main(){
-let again = true
-trainer = confirm("Do you want to watch the computer win?");
+let again = true;
+trainer = prompt("Do you want to watch the computer win?");
 playNim();
-again = confirm("Play again?");
+again = prompt("Play again?");
 if (again == true) main();
+else (again == "no");
 }
 
 /** 
@@ -29,7 +30,12 @@ if (again == true) main();
  * @return none
  */
 function playNim(){
-    alert("Nim game played.");
+if (count < 21);
+userTurn();
+if (count > 20) alert("CPU wins!");
+else (count >= 21);
+cpuTurn();
+if (count < 21); alert("User wins!");
 }
 
 /** 
@@ -39,7 +45,10 @@ function playNim(){
  * @return none
  */
 function userTurn(){
-
+    count = prompt("How many numbers do you want to count?");
+    turn = count;
+    if (turn > 3 || turn < 1) alert("You can't do that!");
+    
 }
 
 /** 
