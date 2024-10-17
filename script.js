@@ -19,7 +19,8 @@ let again = true;
 trainer = prompt("Do you want to watch the computer win?");
 playNim();
 again = prompt("Play again?");
-if (again == true) main();
+if (again == true) 
+    main();
 else (again == "no");
 }
 
@@ -30,12 +31,15 @@ else (again == "no");
  * @return none
  */
 function playNim(){
-if (count < 21);
-userTurn();
-if (count > 20) alert("CPU wins!");
-else (count >= 21);
-cpuTurn();
-if (count < 21); alert("User wins!");
+    while (count < 21){
+        userTurn();
+        if (count > 20) alert("CPU wins!");
+        else{
+            cpuTurn();
+            if (count > 20) alert("User wins!");
+            
+        }
+    }
 }
 
 /** 
@@ -48,7 +52,8 @@ function userTurn(){
     count = prompt("How many numbers do you want to count?");
     turn = count;
     if (turn > 3 || turn < 1) alert("You can't do that!");
-    
+    else (count+=turn);
+    alert("count is now " + count);
 }
 
 /** 
