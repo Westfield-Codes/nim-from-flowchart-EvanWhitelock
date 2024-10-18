@@ -18,7 +18,7 @@ function main(){
 let again = true;
 trainer = prompt("Do you want to watch the computer win?");
 playNim();
-again = prompt("Play again?");
+again = confirm("Play again?");
 if (again == true) 
     main();
 else (again == "no");
@@ -31,6 +31,7 @@ else (again == "no");
  * @return none
  */
 function playNim(){
+    count = 0;
     while (count < 21){
         userTurn();
         if (count > 20) alert("CPU wins!");
@@ -49,13 +50,18 @@ function playNim(){
  * @return none
  */
 function userTurn(){
-    count = prompt("How many numbers do you want to count?");
-    turn = count;
-    if (turn > 3 || turn < 1) alert("You can't do that!");
-    else (count+=turn);
-    alert("count is now " + count);
+    let turn = prompt("Input 1, 2, or 3?");
+    turn = parseInt(turn);
+    if (turn < 1 || turn > 4) count + turn 
+    {
+        alert("Your input is invalid");
+        playerTurn();
 }
-
+    else { 
+    count+= turn;
+    alert("Count is now"+count);
+    }
+}
 /** 
  * cpuTurn 
  * Generate computer's turn without losing on purpose.  Different turns if trainer or simple.  
@@ -63,5 +69,11 @@ function userTurn(){
  * @return none
  */
 function cpuTurn(){
-
+if (count == 17) turn = 3;
+else if (count == 18) turn = 2;
+else if (count > 18) turn = 1;
+else if (trainer == true) turn = 4-count%4;
+else turn = Math.floor(Math.random()*3)+1;
+count+= turn;
+alert("I counted "+turn+", count is now"+count+".");
 }
